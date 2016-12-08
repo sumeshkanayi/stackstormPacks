@@ -1,6 +1,8 @@
 from st2actions.runners.pythonrunner import Action
 import gitlab
 import jenkins
+import requests
+
 class createPipeLine(Action):
       def run(self,repoName):
 	#Will create a Gitlab repository .Add a README.MD file with default contents and will create Master and Developmnt branches
@@ -23,6 +25,7 @@ class createPipeLine(Action):
                 self.logger.info('Created repo')
                 self.logger.info(gitLabRepoCreationStatus)
 		gitLabProjectId=gitLabRepoCreationStatus.id
+		gitLabProjectSshUrl=gitLabRepoCreationStatus.ssh_url_to_repo
                 self.logger.info('Creating gitFlow branches')                
 		self.logger.info('Creating develop Branch')
                 connectGitLab.project_files.create({'project_id' :gitLabProjectId,'file_path' :"README.md",'branch_name' :"master",'content':"This README file was Automatically generated .Please follow GitFlow branching model : https://yakiloo.com/getting-started-git-flow/",'commit_message':"Initial commit"})
