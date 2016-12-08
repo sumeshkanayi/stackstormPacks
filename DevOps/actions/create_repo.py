@@ -1,5 +1,6 @@
 from st2actions.runners.pythonrunner import Action
 import gitlab
+import jenkins
 class createPipeLine(Action):
       def run(self,repoName):
 	#Will create a Gitlab repository .Add a README.MD file with default contents and will create Master and Developmnt branches
@@ -30,7 +31,18 @@ class createPipeLine(Action):
 		self.logger.info(branches)
 		self.logger.info("GitLab repository creation completed")
 	        self.logger.info("Starting Jenkins Job creation")
-		
+	
+	 def createJenkinsJob(jenkinsUrl,jenkinsUserName,jenkinsPassword,jenkinsTemplate,repositoryUrl):
+            jenkinsConnection=jenkins.Jenkins(jenkinsUrl,jenkinsUserName,jenkinsPassword)
+            jenkinsJobGitRepo='<url>'+repositoryUrl+'</url>'
+            jenkinsJobDescription='<description>'+description+'</description>'
+            jenkinsTemplateConfig=jenkinsConnection.get_job_config(jenkinsTemplate)
+            jenkinsTemplateUpdatedDescription=jenkinsTemplateConfig.replace('<description>This is a template maven project</description>',jenkinsJobDescription)
+            jenkinsTemplateUpdateWithGit=jenkinsTemplateUpdatedDescription.replace('<url>http://10.205.36.84:8443/r/om.rxcorp.maven.template.git</url>',jenkinsJobGitRepo)
+            self.logger.info("Update Jenkins XML: %s", jenkinsTemplateUpdateWithGit)
+            jenkinsJobCreated=jenkinsConnection.create_job(semanticName,jenkinsTemplateUpdateWithGit)
+            self.logger.info('Jenkins Template Job : %s', jenkinsTemplateConfig)
+            return jenkinsJobCreated	
 		
 
 
