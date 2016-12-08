@@ -9,12 +9,12 @@
     type: "string"
     secret: false
     required: false
-  gitLabpassword:
+  gitLabPassword:
     description: "gitLab Password (if auth is enabled)"
     type: "string"
     secret: true
     required: false
-  Jenkinsurl:
+  JenkinsUrl:
     description: "FQDN /IP to Jenkins Server"
     type: "string"
     secret: false
