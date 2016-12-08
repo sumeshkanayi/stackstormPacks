@@ -1,10 +1,10 @@
 from st2actions.runners.pythonrunner import Action
 import gitlab
-class creategitLabProject(Action):
+class createPipeLine(Action):
       def run(self,repoName):
-        gitLabUrl=self.config["url"]
-	gitLabUserName=self.config["username"]
-        gitLabPassword=self.config["password"]
+        gitLabUrl=self.config["gitLabUrl"]
+	gitLabUserName=self.config["gitLabUsername"]
+        gitLabPassword=self.config["gitLabPassword"]
         connectGitLab = gitlab.Gitlab(gitLabUrl, email=gitLabUserName, password=gitLabPassword)	
         self.logger.info('Connecting to GitLab')
 	connectGitLab.auth()
