@@ -1,5 +1,5 @@
 ---
-  gitLaburl:
+  gitLabUrl:
     description: "FQDN to gitLab"
     type: "string"
     secret: false
