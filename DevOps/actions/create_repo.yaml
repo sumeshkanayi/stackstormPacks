@@ -8,3 +8,7 @@ parameters:
         type: string
         description: "Name of gitLab Repo"
         required: true
+    Description:
+        type: string
+        description: "Description for the project"
+        required: true
