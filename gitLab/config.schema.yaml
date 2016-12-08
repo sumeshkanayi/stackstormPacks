@@ -1,15 +1,15 @@
 ---
-  url:
+  gitLaburl:
     description: "FQDN to gitLab"
     type: "string"
     secret: false
     required: true
-  username:
+  gitLabusername:
     description: "gitLab Username (if auth is enabled)"
     type: "string"
     secret: false
     required: false
-  password:
+  gitLabpassword:
     description: "gitLab Password (if auth is enabled)"
     type: "string"
     secret: true
