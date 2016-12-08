@@ -1,4 +1,4 @@
 ---
-url: http://gitlab
-username: root
-password: Poocha@22062014
+gitLabUrl: http://gitlab
+gitLabUsername: root
+gitLabPassword: Poocha@22062014
