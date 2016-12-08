@@ -29,7 +29,7 @@ class createPipeLine(Action):
                 branches = connectGitLab.project_branches.list(project_id=gitLabProjectId)
 		self.logger.info(branches)
 		self.logger.info("GitLab repository creation completed")
-	        self.logger.info("Starting Jenkins Jobs")
+	        self.logger.info("Starting Jenkins Job creation")
 		
 		
 
