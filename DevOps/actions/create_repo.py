@@ -2,6 +2,7 @@ from st2actions.runners.pythonrunner import Action
 import gitlab
 class createPipeLine(Action):
       def run(self,repoName):
+	#Will create a Gitlab repository .Add a README.MD file with default contents and will create Master and Developmnt branches
         gitLabUrl=self.config["gitLabUrl"]
 	gitLabUserName=self.config["gitLabUsername"]
         gitLabPassword=self.config["gitLabPassword"]
@@ -18,7 +19,6 @@ class createPipeLine(Action):
 		 self.logger.error("Repo exists")
         else:    
 		gitLabRepoCreationStatus=connectGitLab.projects.create({'name': repoName, 'default_branch': 'master', 'wiki_enabled': 1})
-                print("Iam here")
                 self.logger.info('Created repo')
                 self.logger.info(gitLabRepoCreationStatus)
 		gitLabProjectId=gitLabRepoCreationStatus.id
@@ -28,6 +28,10 @@ class createPipeLine(Action):
 		gitLabDevelopBranch=connectGitLab.project_branches.create({'branch_name': 'develop','ref': 'master', 'project_id' :gitLabProjectId})
                 branches = connectGitLab.project_branches.list(project_id=gitLabProjectId)
 		self.logger.info(branches)
+		self.logger.info("GitLab repository creation completed")
+	        self.logger.info("Starting Jenkins Jobs")
+		
+		
 
 
 
