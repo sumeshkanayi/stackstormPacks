@@ -1,0 +1,2 @@
+create a SeesJob which will pull all repository names in Gitlab
+and based on that it should create multibranch Projects in Jenkins

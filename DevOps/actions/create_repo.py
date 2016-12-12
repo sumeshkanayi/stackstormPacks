@@ -29,6 +29,10 @@ class createPipeLine(Action):
                 self.logger.info('Creating gitFlow branches')                
 		self.logger.info('Creating develop Branch')
                 connectGitLab.project_files.create({'project_id' :gitLabProjectId,'file_path' :"README.md",'branch_name' :"master",'content':"This README file was Automatically generated .Please follow GitFlow branching model : https://yakiloo.com/getting-started-git-flow/",'commit_message':"Initial commit"})
+
+                Jenkinsfilecontent=(open('/opt/stackstorm/packs/gitLab/actions/JenkinsFiles/SBT/Jenkinsfile').read())
+                Jenkinsfile=connectGitLab.project_files.create({'project_id' :gitLabProjectId,'file_path' :"Jenkinsfile",'branch_name' :"master",'content': Jenkinsfilecontent,'commit_message':"Created a Jenkins File"})
+
 		gitLabDevelopBranch=connectGitLab.project_branches.create({'branch_name': 'develop','ref': 'master', 'project_id' :gitLabProjectId})
                 branches = connectGitLab.project_branches.list(project_id=gitLabProjectId)
 		self.logger.info(branches)
