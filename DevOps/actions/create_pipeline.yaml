@@ -1,12 +1,12 @@
 name: create_repo
 runner_type: run-python
-description: "Create Repo"
+description: "Create Pipeline"
 enabled: true
-entry_point: "create_repo.py"
+entry_point: "create_Pipeline.py"
 parameters:
     repoName:
         type: string
-        description: "Name of gitLab Repo"
+        description: "Name of Project"
         required: true
     Description:
         type: string
