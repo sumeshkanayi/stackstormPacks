@@ -14,6 +14,11 @@
     type: "string"
     secret: true
     required: false
+  gitLabPrivateToken:
+    description: "gitLab PrivateToken (if auth is enabled)"
+    type: "string"
+    secret: true
+    required: false
   JenkinsUrl:
     description: "FQDN /IP to Jenkins Server"
     type: "string"
