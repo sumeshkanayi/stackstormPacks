@@ -9,10 +9,11 @@ class createPipeLine(Action):
         gitLabUrl=self.config["gitLabUrl"]
 	gitLabUserName=self.config["gitLabUsername"]
         gitLabPassword=self.config["gitLabPassword"]
+        gitLabPrivateToken=self.config["gitLabPrivateToken"]
         jenkinsUrl=self.config["jenkinsUrl"]
         jenkinsUserName=self.config["jenkinsUserName"]
         jenkinsPassword=self.config["jenkinsPassword"]    
-        connectGitLab = gitlab.Gitlab(gitLabUrl, email=gitLabUserName, password=gitLabPassword)	
+        connectGitLab = gitlab.Gitlab(gitLabUrl,gitLabPrivateToken)	
         self.logger.info('Connecting to GitLab')
 	connectGitLab.auth()
         self.logger.info(connectGitLab.auth())
