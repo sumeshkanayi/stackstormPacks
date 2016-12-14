@@ -4,7 +4,7 @@ import jenkins
 import requests
 
 class createPipeLine(Action):
-      def run(self,repoName,Description):
+      def run(self,projectName,Description):
 	#Will create a Gitlab repository .Add a README.MD file with default contents and will create Master and Developmnt branches
         gitLabUrl=self.config["gitLabUrl"]
 	gitLabUserName=self.config["gitLabUsername"]
@@ -22,10 +22,10 @@ class createPipeLine(Action):
         getAllGitLabProjectNames=[]
         for gitLabProject in getAllGitLabProjects:
 		getAllGitLabProjectNames.append(gitLabProject.name) 
-        if repoName in getAllGitLabProjectNames:
+        if projectName in getAllGitLabProjectNames:
 		 self.logger.error("Repo exists")
         else:    
-		gitLabRepoCreationStatus=connectGitLab.projects.create({'name': repoName, 'default_branch': 'master', 'wiki_enabled': 1})
+		gitLabRepoCreationStatus=connectGitLab.projects.create({'name': projectName, 'default_branch': 'master', 'wiki_enabled': 1})
                 self.logger.info('Created repo')
                 self.logger.info(gitLabRepoCreationStatus)
 		gitLabProjectId=gitLabRepoCreationStatus.id

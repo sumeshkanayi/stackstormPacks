@@ -1,8 +1,8 @@
 ---
-gitLabUrl: http://gitlab
+gitLabUrl: http://gitlab.imshealthcloud.net
 gitLabUsername: root
 gitLabPassword: ""
-gitLabPrivateToken: iw1XB3b7ovfb2GxTjsGc
-jenkinsUrl: http://jenkins:8080
-jenkinsUserName: root
-jenkinsPassword: root123
+gitLabPrivateToken: CuXYXmXmSiSMjGiY2VKx
+jenkinsUrl: http://jenkins.imshealthcloud.net/service/jenkins
+jenkinsUserName: jreagor-admin
+jenkinsPassword: B2SK3oSMTykNR"0+n7+VL4OgB

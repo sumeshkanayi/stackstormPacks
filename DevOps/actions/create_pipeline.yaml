@@ -1,10 +1,10 @@
-name: create_repo
+name: create_pipeline
 runner_type: run-python
 description: "Create Pipeline"
 enabled: true
 entry_point: "create_pipeline.py"
 parameters:
-    repoName:
+    projectName:
         type: string
         description: "Name of Project"
         required: true
